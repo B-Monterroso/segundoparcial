@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../scripts/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../scripts/data/init.js"></script>
+    <script type="module" src="../scripts/validaAcceso.js"></script>
+</head>
+
+<body>
+    <div class="container mt-0 pt-0">
+        <div class="nav">
+            <ul>
+                <li class="active"><a id="compras"><strong>Gestiones</a></strong></li>
+                <li><a id="cerrarSesion"><strong>Cerrar Sesion</a></strong></li>
+                
+            </ul>
+        </div>
+        <div class="content contenedor">
+            <div class="row hijo">
+                <form class="formLogin" id="form_gestiones">
+                    <h1 class="tituloLogin h1Login" id="tituloFormGestiones">Movimiento de Entrada Compras</h1>
+                      <div class="rowLogin">
+                        <label class="labelLogin" for="proveedor" id="proveedorocliente">Proveedor</label>
+                        <input class="inputLogin" type="text" name="proveedor" autocomplete="off" >
+                      </div>
+                      <div class="rowLogin divLogin">
+                        <label class="labelLogin" for="date">Fecha</label>
+                        <input class="inputLogin" type="date" name="fecha">
+                      </div>
+                      <div class="rowLogin" id="divexistencia">
+                        <label class="labelLogin" for="existencia" id="existencia">Existencia</label>
+                        <input class="inputLogin" type="text" name="existencia" id="existenciaInput" autocomplete="off" >
+                      </div>
+                      <div class="rowLogin divLogin">
+                        <label class="labelLogin" for="movimientos">Tipo Movimiento</label>
+                        <select class="inputLogin" id="movimientos" name="movimientoList">
+                            <option value="ENTRADA">ENTRADA</option>
+                            <option value="SALIDA">SALIDA</option>
+                            <option value="EXISTENCIA">EXISTENCIA</option>
+                        </select>
+                      </div>                   
+
+                    <button class="buttonLogin" type="button" onclick="comprasBusqueda()">Busqueda</button>
+                  
+                </form>
+              </div>
+              <style>
+                  .contenedor{
+                      text-align: center;
+                      display: flex;
+                      justify-content: center;
+                  }
+                  .hijo {
+                    margin: 0 auto;
+                  }
+              </style>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="row hijo" style="padding-top: 10px;" id='divGestiones'> <!-- Para mostrar las tablas -->
+                <div class="row" style="margin-bottom: 10px;">
+                    <table>
+                      <caption id="tituloTablaGestiones">Compras</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">Codigo</th>
+                          <th scope="col">Producto</th>
+                          <th scope="col">Cantidad</th>
+                          <th scope="col">Precio</th>
+                          <th scope="col">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tablaGestiones">
+                        <!-- Se llena dinamica mente a traves de scripts\gestiones.js -->
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="footer" style="padding-top: 20px;">
+            <h2>PROYECTO NEGOCIO. BEVERLY MONTERROSO, AGOSTO 2021. </h2>
+        </div>
+    </div>
+    <script src="../scripts/gestiones.js"></script>
+</body>
+
+</html>
